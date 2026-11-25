@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스마트폰·태블릿으로 시작하는 캡컷(CapCut) 모바일 영상 편집 기초 (초급)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body class="theme-light font-md">
+  <!-- 상단 전체 폭 고정 헤더 -->
+  <header class="top-header">
+    <div class="top-header-inner">
+      <div class="header-left">
+        <button id="btn-sidebar-toggle" class="sidebar-toggle-btn" aria-label="목차 열기" title="목차 열기">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <a href="#" class="brand-link" id="brand-link" title="맨 위로 이동">
+          <img src="images/face.png" alt="강연자 프로필" class="profile-img" onerror="this.onerror=null; this.classList.add('img-fallback');">
+          <span class="header-title">스마트폰·태블릿으로 시작하는 캡컷(CapCut) 영상 편집 기초</span>
+        </a>
+      </div>
+
+      <div class="header-right">
+        <span class="lesson-meta-badge">모바일 영상 편집 입문 · 기초 실습</span>
+        <div class="font-size-controls" title="글자 크기 조절">
+          <button id="font-decrease" class="ctrl-btn" aria-label="글자 작게">가-</button>
+          <span id="font-current-label" class="font-indicator">보통</span>
+          <button id="font-increase" class="ctrl-btn" aria-label="글자 크게">가+</button>
+        </div>
+        <button id="theme-toggle" class="theme-circle-btn" aria-label="다크 모드 전환" title="테마 전환">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 사이드바 딤 오버레이 -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <div class="app-layout">
+    <!-- 좌측 고정 사이드바 (목차) -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-area">
+          <div class="logo-badge">CapCut 📱</div>
+          <h2>모바일 영상 편집</h2>
+        </div>
+        <p class="target-subtext">초급 입문자 · 총 80분 (기초 완성)</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <!-- 0부 -->
+        <div class="nav-section">
+          <div class="nav-section-title">
+            <span class="badge badge-zero">0부</span> 수업 시작하기 전에
+          </div>
+          <ul class="nav-list">
+            <li>
+              <a href="#scene-0-1" class="nav-link" data-target="scene-0-1">
+                <span class="num">0-1</span> 이 화면 보는 법
+              </a>
+            </li>
+            <li>
+              <a href="#scene-0-2" class="nav-link" data-target="scene-0-2">
+                <span class="num">0-2</span> 오늘 배울 80분 지도
+              </a>
+            </li>
+            <li>
+              <a href="#scene-0-3" class="nav-link" data-target="scene-0-3">
+                <span class="num">0-3</span> 실습 자료 내려받기
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 1차시 -->
+        <div class="nav-section">
+          <div class="nav-section-title">
+            <span class="badge badge-one">1차시</span> 편집실 준비 & 컷 편집
+            <span class="time-tag">40분</span>
+          </div>
+          <ul class="nav-list">
+            <li>
+              <a href="#scene-1-1" class="nav-link" data-target="scene-1-1">
+                <span class="num">1-1</span> 캡컷 설치와 가입하기
+              </a>
+            </li>
+            <li>
+              <a href="#scene-1-2" class="nav-link" data-target="scene-1-2">
+                <span class="num">1-2</span> 무료 기능 구별과 엔딩 지우기
+              </a>
+            </li>
+            <li>
+              <a href="#scene-1-3" class="nav-link" data-target="scene-1-3">
+                <span class="num">1-3</span> 작업대(화면) 구경하기
+              </a>
+            </li>
+            <li>
+              <a href="#scene-1-4" class="nav-link" data-target="scene-1-4">
+                <span class="num">1-4</span> <span class="highlight-tag">핵심</span> 컷 편집 4단계 공식
+              </a>
+            </li>
+          </ul>
+          <button class="btn-script-trigger" data-modal="modal-script-1">
+            🎙️ 1차시 전체 강의 스크립트 보기 →
+          </button>
+        </div>
+
+        <!-- 2차시 -->
+        <div class="nav-section">
+          <div class="nav-section-title">
+            <span class="badge badge-two">2차시</span> 자막·전환·음악과 저장
+            <span class="time-tag">40분</span>
+          </div>
+          <ul class="nav-list">
+            <li>
+              <a href="#scene-2-1" class="nav-link" data-target="scene-2-1">
+                <span class="num">2-1</span> <span class="highlight-tag">핵심</span> 기본 자막 넣고 꾸미기
+              </a>
+            </li>
+            <li>
+              <a href="#scene-2-2" class="nav-link" data-target="scene-2-2">
+                <span class="num">2-2</span> <span class="highlight-tag">핵심</span> 스티커와 장면 전환 효과
+              </a>
+            </li>
+            <li>
+              <a href="#scene-2-3" class="nav-link" data-target="scene-2-3">
+                <span class="num">2-3</span> <span class="highlight-tag">핵심</span> 배경음악 넣고 길이 맞추기
+              </a>
+            </li>
+            <li>
+              <a href="#scene-2-4" class="nav-link" data-target="scene-2-4">
+                <span class="num">2-4</span> <span class="highlight-tag">핵심</span> 최종 점검과 내보내기(저장)
+              </a>
+            </li>
+          </ul>
+          <button class="btn-script-trigger" data-modal="modal-script-2">
+            🎙️ 2차시 전체 강의 스크립트 보기 →
+          </button>
+        </div>
+
+        <!-- 보충 -->
+        <div class="nav-section">
+          <div class="nav-section-title">
+            <span class="badge badge-bonus">보충</span> 시간이 남았을 때 도전!
+          </div>
+          <ul class="nav-list">
+            <li>
+              <a href="#scene-bonus-1" class="nav-link" data-target="scene-bonus-1">
+                <span class="num">보충-1</span> 화면 속 작은 화면(PIP/오버레이)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 서가 -->
+        <div class="nav-section">
+          <div class="nav-section-title">
+            <span class="badge badge-book">서가</span> 혼자 복습하는 자료실
+          </div>
+          <ul class="nav-list">
+            <li>
+              <a href="#scene-ref-dict" class="nav-link" data-target="scene-ref-dict">
+                <span class="num">📚</span> 초급 캡컷 핵심 용어 사전
+              </a>
+            </li>
+            <li>
+              <a href="#scene-ref-check" class="nav-link" data-target="scene-ref-check">
+                <span class="num">✅</span> 스스로 완성 체크리스트
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="tablet-tip-pill">
+          💡 태블릿 가로 모드 추천
+        </div>
+      </div>
+    </aside>
+
+    <!-- 우측 본문 영역 -->
+    <main class="main-content">
+      <!-- 본문 섹션 컨테이너 -->
+      <div class="scenes-container">
+
+        <!-- ========================================== -->
+        <!-- 0부: 수업 시작하기 전에 -->
+        <!-- ========================================== -->
+        <div class="section-group" id="part-0">
+          <div class="part-banner">
+            <span class="part-pill">0부</span>
+            <h2>편집 시작 전 꼭 알아두어야 할 기초</h2>
+            <p>화면 구성을 익히고, 오늘 배울 80분 편집 로드맵을 미리 살펴봅니다.</p>
+          </div>
+
+          <!-- 0-1 이 화면 보는 법 -->
+          <article class="scene-card" id="scene-0-1">
+            <div class="scene-header">
+              <div class="scene-index">장면 0-1</div>
+              <h3 class="scene-title">이 화면 보는 법 (웹 교재 100% 활용하기)</h3>
+              <span class="step-time">소요 시간: 약 3분</span>
+            </div>
+
+            <div class="scene-lead">
+              강의를 들으며 함께 실습하거나, 스마트폰·태블릿으로 이 웹 교재를 띄워두고 혼자서도 차근차근 따라 하며 복습할 수 있습니다.
+            </div>
+
+            <div class="step-guide-grid">
+              <div class="guide-box">
+                <div class="guide-box-header">
+                  <span class="box-badge num-1">1</span>
+                  <h4>[따라하기] 번호 순서대로 터치하기</h4>
+                </div>
+                <p>각 단계마다 숫자가 매겨져 있습니다. 건너뛰지 말고 1번부터 차례대로 태블릿 화면을 터치해 보세요.</p>
+              </div>
+
+              <div class="guide-box">
+                <div class="guide-box-header">
+                  <span class="box-badge num-2">2</span>
+                  <h4>[태블릿 화면 조작 팁] 확인하기</h4>
+                </div>
+                <p>두 손가락으로 벌리기(확대), 손가락 꾹 누른 채 끌기(드래그) 등 태블릿만의 편리한 손가락 사용법을 알려줍니다.</p>
+              </div>
+
+              <div class="guide-box">
+                <div class="guide-box-header">
+                  <span class="box-badge num-3">3</span>
+                  <h4>[▸ 펼쳐 보기] 눌러 용어 정복하기</h4>
+                </div>
+                <p>어려운 영상 편집 용어가 나오면 카드의 '펼쳐 보기'를 탭하세요. 초보자도 한 번에 이해할 수 있는 쉬운 비유로 설명해 드립니다.</p>
+              </div>
+            </div>
+
+            <!-- 태블릿 화면 조작 팁 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">📱</span> <strong>태블릿 화면 조작 팁</strong>
+              </div>
+              <p>태블릿을 <strong>가로 방향</strong>으로 돌려 거치대에 세우면 왼쪽에는 영상 미리보기가, 아래쪽에는 넓은 타임라인이 시원하게 보여 편집하기 훨씬 편합니다!</p>
+            </div>
+
+            <!-- 주의점 박스 -->
+            <div class="tip-card caution-tip">
+              <div class="tip-title">
+                <span class="tip-icon">⚠️</span> <strong>실수하기 쉬운 주의점!</strong>
+              </div>
+              <p>웹 화면 상단의 <strong>[가+]</strong> 버튼을 누르면 글씨가 커져서 책상 위에 태블릿을 멀리 두고 작업할 때도 잘 보입니다. 눈이 피로할 때는 <strong>[다크 모드]</strong>를 켜보세요.</p>
+            </div>
+
+            <!-- 펼쳐 보기 (쉬운 용어 풀이) -->
+            <details class="term-accordion">
+              <summary class="accordion-header">
+                <span class="chevron">▸</span>
+                <strong>쉬운 용어 풀이: '캡컷(CapCut)'이란 무엇일까요?</strong>
+              </summary>
+              <div class="accordion-body">
+                <div class="term-item">
+                  <span class="term-badge">캡컷(CapCut)</span>
+                  <p>태블릿과 스마트폰에서 누구나 영화 감독처럼 영상을 자르고, 글씨를 쓰고, 멋진 음악을 넣을 수 있는 전 세계에서 가장 많이 쓰는 무료 영상 편집 앱입니다. 가위(Cut)로 필름을 싹둑 자르듯이 쉽게 편집할 수 있어서 캡컷이라는 이름이 붙었어요.</p>
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 0-2 오늘 우리가 배울 80분 지도 -->
+          <article class="scene-card" id="scene-0-2">
+            <div class="scene-header">
+              <div class="scene-index">장면 0-2</div>
+              <h3 class="scene-title">오늘 우리가 배울 80분 편집 로드맵</h3>
+              <span class="step-time">소요 시간: 약 5분</span>
+            </div>
+
+            <div class="scene-lead">
+              우리는 오늘 딱 2시간(80분) 동안 가장 중요한 알짜배기 기능만 배웁니다. 어려운 기능(배속, 역방향, AI 목소리 등)은 다 빼고(화면 겹치기는 시간이 남을 때 보충으로 도전!), 재미있고 깔끔한 영상 하나를 완성하는 것이 오늘의 목표입니다!
+            </div>
+
+            <!-- 로드맵 비주얼 -->
+            <div class="roadmap-wrapper">
+              <div class="roadmap-step step-period1">
+                <div class="period-badge">1차시 (40분)</div>
+                <div class="step-content">
+                  <h4>편집실 준비와 컷 편집 마스터하기</h4>
+                  <ul>
+                    <li>1-1 앱 설치, 필수 동의, 갤러리 권한 허용</li>
+                    <li>1-2 유료(다이아몬드) 피하기 & 기본 엔딩 지우기</li>
+                    <li>1-3 새 프로젝트와 인디케이터(기준선) 관찰</li>
+                    <li>1-4 <strong>[핵심] 컷 편집 4단계 공식 (분할과 삭제)</strong></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="roadmap-arrow">➔</div>
+
+              <div class="roadmap-step step-period2">
+                <div class="period-badge">2차시 (40분)</div>
+                <div class="step-content">
+                  <h4>자막·전환·음악 입히고 완성하기</h4>
+                  <ul>
+                    <li>2-1 <strong>[핵심] 기본 자막 넣고 검은 테두리 꾸미기</strong></li>
+                    <li>2-2 <strong>[핵심] 귀여운 스티커 & 장면 전환 효과</strong></li>
+                    <li>2-3 <strong>[핵심] 무료 배경음악 넣기 & 볼륨 25% 줄이기</strong></li>
+                    <li>2-4 <strong>[핵심] 최종 검토 & 갤러리로 내보내기(저장)</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">🎯</span> <strong>오늘의 성공 미션!</strong>
+              </div>
+              <p>스마트폰이나 태블릿으로 촬영한 10~20초짜리 일상 영상(가족, 여행, 반려동물, 풍경, 음식 등) 조각들을 깔끔하게 다듬고, 또렷한 자막과 어울리는 배경음악을 입혀 완성된 하나의 멋진 영상 파일로 만들어 보는 것입니다!</p>
+            </div>
+          </article>
+
+          <!-- 0-3 실습용 영상과 배경음악 내려받기 -->
+          <article class="scene-card" id="scene-0-3">
+            <div class="scene-header">
+              <div class="scene-index">장면 0-3</div>
+              <h3 class="scene-title">실습용 영상과 배경음악 내려받기</h3>
+              <span class="step-time">소요 시간: 약 2분</span>
+            </div>
+
+            <div class="scene-lead">
+              오늘 캡컷 편집 실습에서 활용할 예제 영상 3개와 신나는 배경음악 1개입니다. 기기에 실습 영상이 없다면 아래 다운로드 버튼을 눌러 스마트폰이나 태블릿에 직접 저장하여 실습할 수 있습니다.
+            </div>
+
+            <div class="download-materials-grid">
+              <a href="assets/clip1.mp4" download="clip1.mp4" class="download-item-card">
+                <div class="download-icon">🎬</div>
+                <div class="download-info">
+                  <span class="download-tag">실습 영상 1</span>
+                  <h4>실습 영상 1 (오프닝 장면)</h4>
+                  <span class="download-file-name">assets/clip1.mp4</span>
+                </div>
+                <span class="btn-download">다운로드 ↓</span>
+              </a>
+
+              <a href="assets/clip2.mp4" download="clip2.mp4" class="download-item-card">
+                <div class="download-icon">🎬</div>
+                <div class="download-info">
+                  <span class="download-tag">실습 영상 2</span>
+                  <h4>실습 영상 2 (중간 활동 장면)</h4>
+                  <span class="download-file-name">assets/clip2.mp4</span>
+                </div>
+                <span class="btn-download">다운로드 ↓</span>
+              </a>
+
+              <a href="assets/clip3.mp4" download="clip3.mp4" class="download-item-card">
+                <div class="download-icon">🎬</div>
+                <div class="download-info">
+                  <span class="download-tag">실습 영상 3</span>
+                  <h4>실습 영상 3 (마무리 장면)</h4>
+                  <span class="download-file-name">assets/clip3.mp4</span>
+                </div>
+                <span class="btn-download">다운로드 ↓</span>
+              </a>
+
+              <a href="assets/bgm.mp3" download="bgm.mp3" class="download-item-card bgm-card">
+                <div class="download-icon">🎵</div>
+                <div class="download-info">
+                  <span class="download-tag bgm-tag">배경음악 1</span>
+                  <h4>실습용 무료 배경음악 (BGM)</h4>
+                  <span class="download-file-name">assets/bgm.mp3</span>
+                </div>
+                <span class="btn-download">다운로드 ↓</span>
+              </a>
+            </div>
+
+            <!-- 태블릿 파일 저장 위치 안내 팁 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">📱</span> <strong>태블릿 다운로드 파일 저장 위치 안내</strong>
+              </div>
+              <p>태블릿(아이패드·갤럭시 탭)에서 위 다운로드 버튼을 누르면 <strong>[파일]</strong>(아이패드) 또는 <strong>[내 파일]</strong>(갤럭시 탭) 앱의 <strong>'다운로드'</strong> 폴더에 파일이 저장됩니다.<br>
+              나중에 캡컷 앱을 켜고 <strong>[새 프로젝트]</strong>를 누른 뒤, 다운로드 폴더나 갤러리에서 해당 파일을 선택하여 불러오면 됩니다!</p>
+            </div>
+          </article>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- 1차시 (40분): 편집실 준비와 컷 편집 마스터하기 -->
+        <!-- ========================================== -->
+        <div class="section-group" id="part-1">
+          <div class="part-banner banner-1">
+            <span class="part-pill pill-1">1차시 (40분)</span>
+            <h2>편집실 준비와 컷 편집 마스터하기</h2>
+            <p>안전하게 앱을 준비하고, 불필요한 장면을 싹둑 잘라내는 영상 편집의 90% '컷 편집'을 배웁니다.</p>
+            <button class="banner-script-btn" data-modal="modal-script-1">
+              🎙️ 1차시 전체 강의 스크립트 보기
+            </button>
+          </div>
+
+          <!-- 1-1 캡컷 설치와 가입하기 -->
+          <article class="scene-card" id="scene-1-1">
+            <div class="scene-header">
+              <div class="scene-index">장면 1-1</div>
+              <h3 class="scene-title">캡컷 설치와 안전하게 로그인하기</h3>
+              <span class="step-time">추천 시간: 8분</span>
+            </div>
+
+            <div class="step-list">
+              <div class="step-row">
+                <div class="step-badge">1단계</div>
+                <div class="step-body">
+                  <h4>앱 마켓에서 'CapCut' 검색 후 설치</h4>
+                  <p>아이패드는 <strong>App Store</strong>, 갤럭시 탭은 <strong>Google Play 스토어</strong>에서 영어로 <code class="code-tag">CapCut</code> 또는 한글로 <code class="code-tag">캡컷</code>을 검색해 검은색 모래시계/가위 모양 아이콘의 앱을 무료로 다운로드합니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">2단계</div>
+                <div class="step-body">
+                  <h4>약관 동의 화면: '필수' 항목만 꼼꼼하게 체크!</h4>
+                  <p>앱을 처음 켜면 서비스 약관 화면이 뜹니다. 무심코 '모두 동의'를 누르지 말고, 반드시 <strong class="text-danger">[필수]</strong>라고 적힌 동의 항목만 체크하고 '선택' 광고성 알림은 체크 해제합니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">3단계</div>
+                <div class="step-body">
+                  <h4>구글 계정이나 이메일로 간편 로그인</h4>
+                  <p>'Google로 계속하기' 버튼을 눌러 평소 사용하는 구글 계정을 선택해 1초 만에 안전하게 로그인합니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">4단계</div>
+                <div class="step-body">
+                  <h4>사진 및 동영상 권한: 반드시 '모든 사진에 대한 접근 허용'!</h4>
+                  <p>"CapCut이 사용자의 사진에 접근하려고 합니다"라는 팝업창이 뜨면 망설이지 말고 <strong>'전체 접근 허용(모든 사진에 대한 접근 허용)'</strong>을 눌러주어야 합니다.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 태블릿 화면 조작 팁 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">📱</span> <strong>태블릿 화면 조작 팁</strong>
+              </div>
+              <p>태블릿의 넓은 화면에서는 첫 화면 중앙에 커다랗게 <strong>[+ 새 프로젝트]</strong> 버튼이 바로 보입니다. 계정 로그인을 해두면 태블릿을 껐다 켜도 내가 만들던 프로젝트가 그대로 저장되어 안전합니다.</p>
+            </div>
+
+            <!-- 주의점 박스 -->
+            <div class="tip-card caution-tip">
+              <div class="tip-title">
+                <span class="tip-icon">🚨</span> <strong>초보자가 가장 많이 겪는 문제! (사진 접근 권한)</strong>
+              </div>
+              <p>"캡컷에 들어왔는데 제 갤러리에 있는 사진이나 동영상이 하나도 안 보여요!"<br>
+              👉 사진 권한에서 '선택한 사진만'을 눌렀거나 '허용 안 함'을 눌렀기 때문입니다. 태블릿 [설정] 앱 → [CapCut] → [사진 접근 권한]에서 <strong>'모든 사진(전체 접근)'</strong>으로 바꿔주면 해결됩니다.</p>
+            </div>
+
+            <!-- 수업 준비 확인 안내 박스 -->
+            <div class="tip-card prep-tip">
+              <div class="tip-title">
+                <span class="tip-icon">🎬</span> <strong>[실습 준비 확인]</strong>
+              </div>
+              <p>다운로드받은 실습용 영상 3개(또는 직접 촬영한 짧은 일상 영상 3개)가 스마트폰이나 태블릿 갤러리에 들어 있는지 먼저 확인해 보세요!</p>
+            </div>
+
+            <!-- 펼쳐 보기 (쉬운 용어 풀이) -->
+            <details class="term-accordion">
+              <summary class="accordion-header">
+                <span class="chevron">▸</span>
+                <strong>쉬운 용어 풀이: '접근 권한'과 '프로젝트'는 무슨 뜻인가요?</strong>
+              </summary>
+              <div class="accordion-body">
+                <div class="term-item">
+                  <span class="term-badge">접근 권한 (Access Permission)</span>
+                  <p>마치 캡컷이라는 요리사에게 "내 태블릿 냉장고(사진 앨범)에 들어가서 요리 재료(동영상)를 꺼내와도 좋아!"라고 열쇠를 건네주는 허락입니다. 열쇠를 주지 않으면 요리사는 재료를 볼 수 없어요.</p>
+                </div>
+                <div class="term-item">
+                  <span class="term-badge">프로젝트 (Project)</span>
+                  <p>내가 지금 만들고 있는 하나의 영상 작업실 폴더입니다. 영상 조각, 자막, 음악이 담긴 도화지 세트라고 생각하면 쉬워요.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- 이 장면 대본 바로가기 버튼 -->
+            <button class="btn-scene-script" data-modal="modal-script-1" data-section="script-1-1">
+              🎙️ 이 장면 강의 해설 대본 읽기 →
+            </button>
+          </article>
+
+          <!-- 1-2 무료 기능 구별법과 엔딩 지우기 -->
+          <article class="scene-card" id="scene-1-2">
+            <div class="scene-header">
+              <div class="scene-index">장면 1-2</div>
+              <h3 class="scene-title">무료 기능 구별법과 캡컷 자동 엔딩 지우기</h3>
+              <span class="step-time">추천 시간: 7분</span>
+            </div>
+
+            <div class="step-lead">
+              열심히 다 만들었는데 마지막에 "결제하세요!" 창이 뜨며 저장이 안 되면 너무 속상하겠죠? 처음부터 돈이 들지 않는 100% 무료 기능만 쏙쏙 골라 쓰는 눈을 기르고, 영상 끝에 자동으로 붙는 광고 클립을 삭제해 봅시다.
+            </div>
+
+            <!-- 시각적 비교 카드 -->
+            <div class="feature-compare-grid">
+              <div class="compare-card free-card">
+                <div class="card-status-badge free-badge">✅ 우리가 쓸 것 (100% 무료)</div>
+                <div class="compare-icon">🎁</div>
+                <h4>아무런 아이콘이 없는 기본 메뉴</h4>
+                <p>글꼴, 스티커, 효과 모음에서 구석에 아무런 딱지가 붙어 있지 않은 깨끗한 버튼들입니다. 언제나 마음껏 무료로 저장할 수 있습니다.</p>
+              </div>
+
+              <div class="compare-card pro-card">
+                <div class="card-status-badge pro-badge">🚫 절대 누르지 마세요 (유료)</div>
+                <div class="compare-icon">💎</div>
+                <h4>반짝이는 다이아몬드 & 'PRO' / '무료 체험판'</h4>
+                <p>아이콘 오른쪽 위에 보라색/황금색 <strong>다이아몬드(💎)</strong>나 <strong>PRO</strong>, 또는 <strong>'무료 체험판'</strong>이라고 쓰여 있는 기능입니다. 하나라도 쓰면 마지막 저장할 때 유료 구독 카드가 뜹니다.</p>
+              </div>
+            </div>
+
+            <!-- 엔딩 클립 삭제 단계 -->
+            <div class="action-steps-banner">
+              <h4>🎬 영상 맨 끝에 생기는 'CapCut 엔딩' 깔끔하게 지우기 2가지 방법</h4>
+              <div class="step-subgrid">
+                <div class="sub-step">
+                  <strong>방법 1. 편집할 때마다 손으로 지우기</strong>
+                  <p>타임라인 맨 뒤로 이동하면 검은색 바탕에 흰 글씨로 'CapCut'이라고 나오는 2초짜리 클립이 있습니다. 이 클립을 톡 터치하고 하단의 <span class="action-tag">삭제(휴지통)</span> 버튼을 누르면 싹 지워집니다.</p>
+                </div>
+                <div class="sub-step">
+                  <strong>방법 2. 설정에서 평생 안 나오게 끄기 (강력 추천!)</strong>
+                  <p>캡컷 첫 화면 맨 아래 오른쪽 <strong>[나]</strong> 탭 터치 → 오른쪽 위 <strong>[설정(⚙️)]</strong> 터치 → <strong>'기본 엔딩 추가'</strong> 끄기(회색)로 바꾸고 <strong>'버리기'</strong>를 누릅니다. 이제 앞으로 새 프로젝트를 열어도 엔딩이 영원히 생기지 않아요!</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 태블릿 화면 조작 팁 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">📱</span> <strong>태블릿 화면 조작 팁</strong>
+              </div>
+              <p>태블릿 화면은 가로로 넓기 때문에 하단 메뉴에 글자 이름(분할, 오디오, 텍스트 등)이 잘려서 숨지 않고 시원하게 한눈에 펼쳐집니다. 다이아몬드 표시가 없는지 눈으로 쓱 확인하고 터치하세요.</p>
+            </div>
+
+            <!-- 주의점 박스 -->
+            <div class="tip-card caution-tip">
+              <div class="tip-title">
+                <span class="tip-icon">⚠️</span> <strong>'무료 체험판'이라는 말에 속지 마세요!</strong>
+              </div>
+              <p>'무료 체험판'이라는 글자가 보이면 "어? 무료니까 공짜네!" 하고 누르기 쉬운데, 이는 '7일 뒤부터 돈이 나가는 유료 구독'을 뜻합니다. 처음 배우는 초급 실습에서는 <strong>아무런 마크가 없는 순수 무료 기능만</strong> 사용해야 비용 결제 걱정 없이 끝까지 안전합니다.</p>
+            </div>
+
+            <!-- 펼쳐 보기 (쉬운 용어 풀이) -->
+            <details class="term-accordion">
+              <summary class="accordion-header">
+                <span class="chevron">▸</span>
+                <strong>쉬운 용어 풀이: '엔딩(Ending)'이란 무엇인가요?</strong>
+              </summary>
+              <div class="accordion-body">
+                <div class="term-item">
+                  <span class="term-badge">엔딩 (Ending)</span>
+                  <p>영화가 다 끝나고 나오는 마지막 마침표 화면입니다. 캡컷은 기본적으로 자기 앱 로고를 영상 끝에 몰래 붙여두는데, 우리는 이것을 깔끔하게 지워서 내가 직접 만든 순수한 내 영상으로 완성할 것입니다.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- 이 장면 대본 바로가기 버튼 -->
+            <button class="btn-scene-script" data-modal="modal-script-1" data-section="script-1-2">
+              🎙️ 이 장면 강의 해설 대본 읽기 →
+            </button>
+          </article>
+
+          <!-- 1-3 작업대 구경하기 -->
+          <article class="scene-card" id="scene-1-3">
+            <div class="scene-header">
+              <div class="scene-index">장면 1-3</div>
+              <h3 class="scene-title">작업대(편집 화면) 구경하기 & 인디케이터 이해하기</h3>
+              <span class="step-time">추천 시간: 10분</span>
+            </div>
+
+            <div class="step-lead">
+              요리사에게 도마와 칼이 있는 조리대가 있듯이, 영상 편집자에게는 캡컷의 편집 화면이 작업대입니다. 각 구역의 이름과 가장 중요한 '하얀 세로선'을 알아봅시다.
+            </div>
+
+            <!-- 태블릿 편집 화면 가상 다이어그램 UI -->
+            <div class="mockup-tablet-ui">
+              <div class="mockup-header-bar">
+                <span class="mock-btn">✕ 닫기</span>
+                <span class="mock-res">1080P ▼</span>
+                <span class="mock-export">내보내기 ↑</span>
+              </div>
+              <div class="mockup-main-area">
+                <div class="mockup-preview-screen">
+                  <div class="preview-center-badge">
+                    📺 미리보기 창 (내가 만든 영상이 재생되는 곳)
+                  </div>
+                  <div class="preview-controls">
+                    <button class="mock-play-btn">▶ 재생 (스페이스바 / 터치)</button>
+                    <span class="mock-time">00:04 / 00:15</span>
+                    <span class="mock-fullscreen" title="전체화면">[ ⛶ ] 전체화면</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mockup-timeline-area">
+                <div class="timeline-indicator-line">
+                  <div class="indicator-head">▼</div>
+                  <div class="indicator-desc">하얀 세로선 (인디케이터 / 기준선)</div>
+                </div>
+                <div class="timeline-track video-track">
+                  <div class="clip-block active-clip">
+                    <span class="clip-thumb">🎬</span>
+                    <span class="clip-name">동영상 1조각 (선택됨: 흰색 테두리)</span>
+                  </div>
+                  <div class="transition-cut-btn">|</div>
+                  <div class="clip-block">
+                    <span class="clip-thumb">🎬</span>
+                    <span class="clip-name">동영상 2조각</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mockup-toolbar-bottom">
+                <div class="tool-item">✂️ 분할</div>
+                <div class="tool-item">🔊 볼륨</div>
+                <div class="tool-item">🗑️ 삭제</div>
+                <div class="tool-item">T 텍스트</div>
+                <div class="tool-item">🎵 오디오</div>
+                <div class="tool-item">✨ 스티커</div>
+              </div>
+            </div>
+
+            <!-- 핵심 3대 구역 설명 -->
+            <div class="ui-zone-grid">
+              <div class="zone-box">
+                <span class="zone-badge zone-preview">1. 위쪽</span>
+                <h4>미리보기 창 (화면 모니터)</h4>
+                <p>가운데 큰 화면입니다. <strong>▶ 재생 버튼</strong>을 누르면 영상이 움직이고, 오른쪽 아래 네모 <strong>[ ⛶ ] 전체 화면 버튼</strong>을 누르면 영화관처럼 크게 볼 수 있습니다.</p>
+              </div>
+
+              <div class="zone-box">
+                <span class="zone-badge zone-timeline">2. 가운데</span>
+                <h4>타임라인 (시간 필름 기차 레일)</h4>
+                <p>영상 클립들이 가로로 길게 누워 있는 곳입니다. 손가락으로 왼쪽, 오른쪽으로 쓱 밀면 시간이 과거와 미래로 이동합니다.</p>
+              </div>
+
+              <div class="zone-box">
+                <span class="zone-badge zone-indicator">3. 가장 중요!</span>
+                <h4>인디케이터 (하얀색 세로 기준선)</h4>
+                <p>타임라인 정중앙에 수직으로 서 있는 하얀 막대입니다. <strong>"지금 이 순간 내가 가위로 자르고 자막을 붙일 자리!"</strong>를 가리키는 기준 바늘입니다.</p>
+              </div>
+            </div>
+
+            <!-- 태블릿 화면 조작 팁 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">📱</span> <strong>태블릿 화면 조작 팁: 두 손가락 핀치 줌!</strong>
+              </div>
+              <p>영상이 너무 촘촘해서 1초 단위로 정밀하게 자르기 힘들다면? 타임라인 위에 <strong>두 손가락을 대고 사진 확대하듯 쫙 벌려보세요!</strong> 영상 막대가 돋보기로 보듯 길어져서 아주 미세한 순간도 쉽게 찾을 수 있습니다. 반대로 오므리면 전체 길이가 한눈에 쏙 들어옵니다.</p>
+            </div>
+
+            <!-- 주의점 박스 -->
+            <div class="tip-card caution-tip">
+              <div class="tip-title">
+                <span class="tip-icon">⚠️</span> <strong>인디케이터를 안 맞추고 누르면 엉뚱한 곳에 들어가요!</strong>
+              </div>
+              <p>모든 자막, 스티커, 가위질은 <strong>하얀 세로선(인디케이터)이 서 있는 바로 그 지점</strong>에 들어갑니다! 작업을 시작하기 전에는 항상 영상을 손가락으로 밀어 하얀 기준선을 원하는 곳에 먼저 딱 세워두세요.</p>
+            </div>
+
+            <!-- 펼쳐 보기 (쉬운 용어 풀이) -->
+            <details class="term-accordion">
+              <summary class="accordion-header">
+                <span class="chevron">▸</span>
+                <strong>쉬운 용어 풀이: '인디케이터'와 '타임라인'은 무슨 뜻인가요?</strong>
+              </summary>
+              <div class="accordion-body">
+                <div class="term-item">
+                  <span class="term-badge">인디케이터 (Indicator / 기준선)</span>
+                  <p>LP 턴테이블의 바늘이나 저울의 눈금 바늘과 같아요. "지금 미리보기 창에 나오는 화면이 바로 이 세로선에 걸린 찰나의 순간이다!"라고 알려주는 기준 막대기입니다.</p>
+                </div>
+                <div class="term-item">
+                  <span class="term-badge">타임라인 (Timeline / 시간선)</span>
+                  <p>시간(Time)의 줄(Line)이라는 뜻이에요. 0초부터 시작해서 5초, 10초, 20초까지 영상이 기차 칸처럼 순서대로 이어져 지나가는 레일입니다.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- 이 장면 대본 바로가기 버튼 -->
+            <button class="btn-scene-script" data-modal="modal-script-1" data-section="script-1-3">
+              🎙️ 이 장면 강의 해설 대본 읽기 →
+            </button>
+          </article>
+
+          <!-- 1-4 [핵심 실습] 컷 편집 4단계 공식 -->
+          <article class="scene-card highlight-card" id="scene-1-4">
+            <div class="scene-header">
+              <div class="scene-index key-point-index">장면 1-4 ★ 1차시 핵심 실습</div>
+              <h3 class="scene-title">컷 편집 4단계 공식 (가위질과 지우개)</h3>
+              <span class="step-time">추천 시간: 15분</span>
+            </div>
+
+            <div class="step-lead">
+              영상 편집의 90%는 '재미없는 부분, 흔들린 부분, 말문이 막힌 부분을 잘라내 버리는 것'입니다. 이 4단계 주문만 외우면 여러분도 전문 편집자처럼 깔끔하게 자를 수 있습니다!
+            </div>
+
+            <!-- 4단계 공식 카드 -->
+            <div class="four-step-flow">
+              <div class="flow-card">
+                <div class="flow-num">1</div>
+                <h4>기준선 두기</h4>
+                <div class="flow-desc">손가락으로 타임라인을 밀어서 자르고 싶은 순간에 <strong>하얀 세로선(인디케이터)</strong>을 딱 멈춰 세웁니다.</div>
+                <div class="flow-tag">눈으로 맞추기</div>
+              </div>
+
+              <div class="flow-arrow">➔</div>
+
+              <div class="flow-card">
+                <div class="flow-num">2</div>
+                <h4>영상 터치하기</h4>
+                <div class="flow-desc">타임라인에 있는 영상 클립을 손가락으로 톡 누릅니다. 영상 주변에 <strong>하얀색 굵은 테두리</strong>가 생깁니다.</div>
+                <div class="flow-tag">선택 완료!</div>
+              </div>
+
+              <div class="flow-arrow">➔</div>
+
+              <div class="flow-card">
+                <div class="flow-num">3</div>
+                <h4>'분할' 누르기</h4>
+                <div class="flow-desc">화면 아래 맨 왼쪽 첫 번째에 있는 <strong>[✂️ 분할]</strong> 아이콘을 톡 누르면 영상이 두 조각으로 싹둑 나뉩니다.</div>
+                <div class="flow-tag">싹둑 쪼개기</div>
+              </div>
+
+              <div class="flow-arrow">➔</div>
+
+              <div class="flow-card">
+                <div class="flow-num">4</div>
+                <h4>'삭제' 누르기</h4>
+                <div class="flow-desc">필요 없는 조각(앞 또는 뒤)을 톡 터치해 흰 테두리를 띄운 뒤 하단의 <strong>[🗑️ 삭제]</strong> 버튼을 누릅니다. 끝!</div>
+                <div class="flow-tag">쓰레기통 쏙!</div>
+              </div>
+            </div>
+
+            <!-- 실수했을 때 마법의 되돌리기 비법 -->
+            <div class="undo-magic-box">
+              <div class="undo-icon">↩️</div>
+              <div class="undo-text">
+                <h4>앗! 실수로 필요한 영상을 지워버렸나요? 걱정 마세요!</h4>
+                <p>미리보기 화면 왼쪽 바로 아래에 있는 <strong>왼쪽 둥근 화살표(U턴 화살표: 실행 취소 / Undo)</strong> 버튼을 누르면 마치 타임머신을 탄 것처럼 방금 한 실수가 1초 전으로 완벽하게 되돌아갑니다. 절대 당황하지 마세요!</p>
+              </div>
+            </div>
+
+            <!-- 태블릿 화면 조작 팁 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">📱</span> <strong>태블릿 화면 조작 팁</strong>
+              </div>
+              <p>영상을 선택하면 생기는 하얀 테두리의 <strong>양쪽 끝 흰 막대(핸들)</strong>를 손가락으로 꾹 누른 채 안쪽으로 밀어도 길이가 싹 줄어듭니다! 굳이 자르지 않고 앞뒤 여백을 다듬을 때 가장 편리한 제스처입니다.</p>
+            </div>
+
+            <!-- 주의점 박스 -->
+            <div class="tip-card caution-tip">
+              <div class="tip-title">
+                <span class="tip-icon">⚠️</span> <strong>자주 묻는 질문: 하단 메뉴에 '분할' 버튼이 안 보여요!</strong>
+              </div>
+              <p>영상 클립을 터치하지 않고 빈 공간을 터치하면 메인 메뉴(텍스트, 오디오 등)가 나옵니다. <strong>반드시 타임라인의 영상을 손가락으로 톡 쳐서 '하얀 테두리'가 둘러져 있는지 확인</strong>하세요! 그래야 [분할] 버튼이 마법처럼 짠 나타납니다.</p>
+            </div>
+
+            <!-- 펼쳐 보기 (쉬운 용어 풀이) -->
+            <details class="term-accordion">
+              <summary class="accordion-header">
+                <span class="chevron">▸</span>
+                <strong>쉬운 용어 풀이: '분할(Split)'과 '클립(Clip)'은 무슨 뜻인가요?</strong>
+              </summary>
+              <div class="accordion-body">
+                <div class="term-item">
+                  <span class="term-badge">분할 (Split / 쪼개기)</span>
+                  <p>기다란 가래떡을 칼로 토막내듯, 하나의 긴 동영상을 내가 원하는 지점에서 두 개, 세 개로 가위질하는 것입니다.</p>
+                </div>
+                <div class="term-item">
+                  <span class="term-badge">클립 (Clip / 영상 조각)</span>
+                  <p>잘라내어 나뉜 하나하나의 동영상 조각을 '클립'이라고 부릅니다. 종이 클립처럼 작은 조각 단위로 다룬다는 뜻이에요.</p>
+                </div>
+                <div class="term-item">
+                  <span class="term-badge">실행 취소 (Undo / 되돌리기)</span>
+                  <p>방금 한 행동을 지우개로 슥슥 지우고 없던 일로 되돌려놓는 컴퓨터의 마법 주문(Ctrl+Z)과 같은 기능입니다.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- 이 장면 대본 바로가기 버튼 -->
+            <button class="btn-scene-script" data-modal="modal-script-1" data-section="script-1-4">
+              🎙️ 이 장면 강의 해설 대본 읽기 →
+            </button>
+          </article>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- 2차시 (40분): 자막·전환·음악 입히고 완성하기 -->
+        <!-- ========================================== -->
+        <div class="section-group" id="part-2">
+          <div class="part-banner banner-2">
+            <span class="part-pill pill-2">2차시 (40분)</span>
+            <h2>자막·전환·음악 입히고 완성하기</h2>
+            <p>잘라낸 영상에 재미있는 자막과 화면 전환, 신나는 배경음악을 입혀 완성작 파일로 뽑아냅니다.</p>
+            <button class="banner-script-btn" data-modal="modal-script-2">
+              🎙️ 2차시 전체 강의 스크립트 보기
+            </button>
+          </div>
+
+          <!-- 2-1 [핵심 실습] 기본 자막 넣고 꾸미기 -->
+          <article class="scene-card highlight-card" id="scene-2-1">
+            <div class="scene-header">
+              <div class="scene-index key-point-index">장면 2-1 ★ 2차시 핵심 실습</div>
+              <h3 class="scene-title">기본 자막 넣고 잘 보이게 꾸미기</h3>
+              <span class="step-time">추천 시간: 12분</span>
+            </div>
+
+            <div class="step-lead">
+              유튜브나 숏폼을 볼 때 자막이 없으면 무슨 말인지 잘 안 들리죠? 화면에 예쁜 글씨를 쓰고, 어떤 배경에서도 또렷하게 잘 보이도록 검은색 테두리를 입혀봅시다.
+            </div>
+
+            <div class="step-list">
+              <div class="step-row">
+                <div class="step-badge">1단계</div>
+                <div class="step-body">
+                  <h4>글씨가 나올 자리에 하얀 기준선 세우기</h4>
+                  <p>타임라인을 손가락으로 밀어 자막이 등장해야 하는 시작 위치에 인디케이터(하얀 기준선)를 놓습니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">2단계</div>
+                <div class="step-body">
+                  <h4>[텍스트] → [텍스트 추가] 터치하기</h4>
+                  <p>화면 하단 메뉴에서 <strong>'T 텍스트'</strong> 아이콘을 누른 후, 바로 위에 뜨는 <strong>'+ 텍스트 추가'</strong> 버튼을 탭합니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">3단계</div>
+                <div class="step-body">
+                  <h4>내용 입력 & 다이아몬드 없는 예쁜 무료 폰트 고르기</h4>
+                  <p>태블릿 키보드로 자막 내용을 타이핑합니다. 그 다음 <strong>[글꼴]</strong> 탭을 눌러 마음에 드는 둥근 글씨체를 고릅니다. <em>(주의: 오른쪽 위에 보라색 다이아몬드가 있는 유료 글꼴은 피하세요!)</em></p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">4단계</div>
+                <div class="step-body">
+                  <h4>[스타일]에서 '검은색 외곽선(테두리)' 넣어 또렷하게!</h4>
+                  <p><strong>[스타일]</strong> 메뉴로 들어간 뒤, 두 번째 줄에 있는 <strong>[획(외곽선)]</strong>을 누르고 <strong>검은색 원</strong>을 선택합니다. 아래 두께 슬라이더를 30% 정도로 조절하면 흰 글씨에 선명한 검은 테두리가 생겨 배경이 밝아도 글씨가 아주 잘 읽힙니다!</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">5단계</div>
+                <div class="step-body">
+                  <h4>화면에서 직접 끌어 크기와 위치 맞추기 & 자막 시간 조절</h4>
+                  <p>미리보기 화면의 자막 박스를 손가락으로 잡고 화면 아래쪽 적당한 위치로 끌어다 놓습니다. 타임라인의 주황색 자막 막대 오른쪽 끝부분을 잡고 당기면 자막이 켜져 있는 시간을 늘리거나 줄일 수 있습니다.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 자막 가독성 꿀팁 박스 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">✨</span> <strong>초보자 필수! 자막 황금 공식 (배경이 밝을 때)</strong>
+              </div>
+              <p>하늘이나 하얀 벽 앞에서는 그냥 흰색 글씨가 투명인간처럼 사라집니다. [스타일] → [획]에서 <strong>검은색 테두리</strong>를 두르거나, [배경] 탭에서 <strong>반투명 검정 상자</strong>를 씌워주면 방송국 TV 자막처럼 아주 또렷해집니다!</p>
+            </div>
+
+            <!-- 주의점 박스 -->
+            <div class="tip-card caution-tip">
+              <div class="tip-title">
+                <span class="tip-icon">⚠️</span> <strong>화면 맨 아래 끝에 너무 딱 붙이지 마세요!</strong>
+              </div>
+              <p>자막을 태블릿 화면 맨 밑바닥에 너무 바짝 붙이면, 나중에 유튜브나 틱톡, 릴스에 올렸을 때 영상 재생 바나 제목 글씨에 가려져 보이지 않게 됩니다. 살짝 손가락 한 마디 정도 띄워주는 센스를 발휘해 보세요!</p>
+            </div>
+
+            <!-- 펼쳐 보기 (쉬운 용어 풀이) -->
+            <details class="term-accordion">
+              <summary class="accordion-header">
+                <span class="chevron">▸</span>
+                <strong>쉬운 용어 풀이: '폰트(Font)'와 '스타일(외곽선)'이란?</strong>
+              </summary>
+              <div class="accordion-body">
+                <div class="term-item">
+                  <span class="term-badge">폰트 (Font / 글꼴)</span>
+                  <p>글씨의 옷(생김새)입니다. 귀여운 옷(동글동글한 글씨), 진지한 옷(명조체), 씩씩한 옷(고딕체)처럼 영상 분위기에 맞춰 입힐 수 있어요.</p>
+                </div>
+                <div class="term-item">
+                  <span class="term-badge">외곽선 (Stroke / 획)</span>
+                  <p>글씨 둘레에 펜으로 또렷하게 테두리선을 덧그려 주는 것입니다. 밝은 배경에서도 글씨가 눈에 번쩍 띄게 도와줍니다.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- 이 장면 대본 바로가기 버튼 -->
+            <button class="btn-scene-script" data-modal="modal-script-2" data-section="script-2-1">
+              🎙️ 이 장면 강의 해설 대본 읽기 →
+            </button>
+          </article>
+
+          <!-- 2-2 [핵심 실습] 귀여운 스티커와 장면 전환 효과 -->
+          <article class="scene-card highlight-card" id="scene-2-2">
+            <div class="scene-header">
+              <div class="scene-index key-point-index">장면 2-2 ★ 2차시 핵심 실습</div>
+              <h3 class="scene-title">귀여운 스티커와 부드러운 장면 전환(트랜지션)</h3>
+              <span class="step-time">추천 시간: 8분</span>
+            </div>
+
+            <div class="step-lead">
+              영상에 귀여운 감정을 표현하는 움직이는 스티커를 붙이고, 1번 영상에서 2번 영상으로 넘어갈 때 뚝 끊기지 않고 부드럽게 이어지는 장면 전환 효과를 넣어봅니다.
+            </div>
+
+            <div class="action-steps-banner">
+              <h4>1. 움직이는 무료 스티커 붙이기</h4>
+              <p>하단 메뉴에서 <strong>[스티커]</strong> 아이콘 터치 → 하트, 화살표, 웃는 얼굴 등 마음에 드는 스티커 고르기 <em>(다이아몬드 없는 것만!)</em> → 체크(V) 버튼을 누르고 미리보기 화면에서 두 손가락으로 크기를 줄이고 원하는 곳에 배치합니다.</p>
+            </div>
+
+            <div class="action-steps-banner">
+              <h4>2. 영상과 영상 사이의 하얀 네모 [ | ] 누르기 (화면 전환 효과)</h4>
+              <div class="transition-demo-flex">
+                <div class="demo-box">
+                  <div class="cut-box">동영상 1</div>
+                  <div class="trans-btn-sample" title="이 하얀 단추를 터치하세요!">[ ⫾ ]</div>
+                  <div class="cut-box">동영상 2</div>
+                </div>
+                <div class="demo-text">
+                  <p>타임라인에서 영상 클립이 쪼개진 틈새를 보면 <strong>작은 하얀색 네모 상자(가운데 검은 세로선)</strong>가 보입니다. 이 단추를 손가락으로 톡 누르면 화면 전환 효과 창이 열립니다!</p>
+                </div>
+              </div>
+              <ul class="step-inner-list">
+                <li><strong>효과 선택:</strong> 화면 전환 메뉴의 <strong>[기본]</strong> 탭에서 가장 깔끔한 <strong>'디졸브(녹아들기)'</strong> 또는 <strong>'블랙 페이드(검게 어두워졌다 밝아지기)'</strong>를 골라보세요.</li>
+                <li><strong>시간 조절:</strong> 아래 시간 바를 0.5초 정도로 맞추면 아주 자연스럽게 다음 장면으로 스르륵 넘어갑니다.</li>
+                <li><strong>완료:</strong> 오른쪽 아래 체크(V) 버튼을 누르면 적용 완료!</li>
+              </ul>
+            </div>
+
+            <!-- 태블릿 화면 조작 팁 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">📱</span> <strong>태블릿 화면 조작 팁</strong>
+              </div>
+              <p>하얀 네모 전환 버튼이 너무 작아서 손가락으로 누르기 힘들면, 아까 배운 <strong>두 손가락 벌리기(핀치 줌)</strong>로 타임라인을 쫙 확대해 보세요. 버튼이 큼직해져서 손쉽게 콕 누를 수 있습니다!</p>
+            </div>
+
+            <!-- 주의점 박스 -->
+            <div class="tip-card caution-tip">
+              <div class="tip-title">
+                <span class="tip-icon">⚠️</span> <strong>화면 전환 효과를 너무 어지럽게 쓰지 마세요!</strong>
+              </div>
+              <p>빙글빙글 도는 3D 효과나 요란하게 번쩍이는 효과를 조각마다 다 다르게 넣으면 보는 사람이 멀미가 날 수 있습니다. 한 영상에서는 1~2가지의 깔끔한 효과(디졸브 등)로 통일하는 것이 멋진 전문가의 비결입니다.</p>
+            </div>
+
+            <!-- 펼쳐 보기 (쉬운 용어 풀이) -->
+            <details class="term-accordion">
+              <summary class="accordion-header">
+                <span class="chevron">▸</span>
+                <strong>쉬운 용어 풀이: '장면 전환(트랜지션)'이란?</strong>
+              </summary>
+              <div class="accordion-body">
+                <div class="term-item">
+                  <span class="term-badge">전환 효과 (Transition / 트랜지션)</span>
+                  <p>첫 번째 장면이 끝나고 두 번째 장면이 시작될 때, 마치 연극 무대에서 막이 내려갔다 올라가듯 부드럽게 연결해 주는 마법의 다리입니다.</p>
+                </div>
+                <div class="term-item">
+                  <span class="term-badge">디졸브 (Dissolve)</span>
+                  <p>설탕이 물에 스르륵 녹듯이 앞 장면이 부드럽게 옅어지면서 뒷장면이 서서히 겹쳐 나타나는 가장 자연스럽고 유명한 전환 효과입니다.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- 이 장면 대본 바로가기 버튼 -->
+            <button class="btn-scene-script" data-modal="modal-script-2" data-section="script-2-2">
+              🎙️ 이 장면 강의 해설 대본 읽기 →
+            </button>
+          </article>
+
+          <!-- 2-3 [핵심 실습] 배경음악 넣고 길이 자르기 -->
+          <article class="scene-card highlight-card" id="scene-2-3">
+            <div class="scene-header">
+              <div class="scene-index key-point-index">장면 2-3 ★ 2차시 핵심 실습</div>
+              <h3 class="scene-title">신나는 배경음악 넣고 소리 크기 맞추기</h3>
+              <span class="step-time">추천 시간: 10분</span>
+            </div>
+
+            <div class="step-lead">
+              음악이 들어가면 영상의 분위기가 완전히 달라집니다! 캡컷에서 제공하는 무료 음악을 골라 넣고, 영상 길이에 딱 맞게 뒷부분을 잘라낸 뒤 목소리를 묻히지 않게 볼륨을 줄여봅시다.
+            </div>
+
+            <div class="step-list">
+              <div class="step-row">
+                <div class="step-badge">1단계</div>
+                <div class="step-body">
+                  <h4>맨 앞으로 기준선 보내고 [오디오] → [사운드] 누르기</h4>
+                  <p>인디케이터를 영상 맨 처음(0초)에 놓습니다. 하단 메뉴에서 <strong>[🎵 오디오]</strong>를 누르고 첫 번째 <strong>[사운드]</strong>를 터치합니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">2단계</div>
+                <div class="step-body">
+                  <h4>분위기에 맞는 무료 음악 고르고 [+] 버튼 터치</h4>
+                  <p>'비트', '여행', '신선한' 등 카테고리에서 마음에 드는 음악의 재생 버튼을 눌러 미리 들어봅니다. 마음에 들면 곡 옆의 초록색 또는 파란색 <strong>[+]</strong> 버튼을 누르면 타임라인 아래에 파란색 음악 막대가 쏙 들어옵니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">3단계</div>
+                <div class="step-body">
+                  <h4>[가장 중요!] 영상 끝나는 지점에 딱 맞춰 음악 자르기</h4>
+                  <p>음악은 보통 2~3분으로 아주 깁니다. 영상이 끝나는 지점에 하얀 기준선을 맞추고, 파란색 음악 막대를 터치해 흰 테두리를 띄운 뒤 <strong>[✂️ 분할]</strong> → 삐져나온 뒷부분 음악 선택 후 <strong>[🗑️ 삭제]</strong>를 누릅니다!</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">4단계</div>
+                <div class="step-body">
+                  <h4>음악 막대 터치 → [볼륨]을 눌러 '20~30'으로 줄이기</h4>
+                  <p>기본 볼륨은 100으로 되어 있어서 음악 소리가 너무 큽니다. 음악 막대를 터치하고 하단의 <strong>[🔊 볼륨]</strong> 버튼을 눌러 숫자를 <strong>20 ~ 30%</strong> 정도로 스르륵 낮춰줍니다.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 태블릿 화면 조작 팁 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">📱</span> <strong>태블릿 화면 조작 팁</strong>
+              </div>
+              <p>파란색 오디오 트랙은 영상 트랙 바로 아래에 생깁니다. 손가락으로 타임라인을 위아래로 살짝 쓸어 올리면 오디오 트랙이 넓게 보여서 분할하기 훨씬 쉬워집니다.</p>
+            </div>
+
+            <!-- 주의점 박스 -->
+            <div class="tip-card caution-tip">
+              <div class="tip-title">
+                <span class="tip-icon">🚨</span> <strong>영상은 끝났는데 까만 화면에서 음악만 계속 나오는 이유!</strong>
+              </div>
+              <p>처음 편집할 때 가장 흔히 하는 실수가 바로 음악 뒷부분을 안 잘라 영상은 10초 만에 끝났는데 검은 화면이 3분 동안 계속 나오는 경우입니다! <strong>영상이 끝나는 바로 그 위치에 하얀 선을 대고 음악도 똑같이 [분할 → 뒷부분 삭제]</strong>를 반드시 해주세요!</p>
+            </div>
+
+            <!-- 펼쳐 보기 (쉬운 용어 풀이) -->
+            <details class="term-accordion">
+              <summary class="accordion-header">
+                <span class="chevron">▸</span>
+                <strong>쉬운 용어 풀이: 'BGM(배경음악)'과 '볼륨(Volume)'이란?</strong>
+              </summary>
+              <div class="accordion-body">
+                <div class="term-item">
+                  <span class="term-badge">BGM (배경음악 / Background Music)</span>
+                  <p>주인공 뒤에서 은은하게 깔려 분위기를 신나게, 혹은 감동적으로 만들어 주는 양념 같은 음악입니다.</p>
+                </div>
+                <div class="term-item">
+                  <span class="term-badge">볼륨 (Volume / 음량)</span>
+                  <p>소리의 크기입니다. 영상 속 사람 목소리가 잘 들리려면 배경음악 볼륨은 살짝 속삭이듯 낮춰주는 것이 황금 예의입니다.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- 이 장면 대본 바로가기 버튼 -->
+            <button class="btn-scene-script" data-modal="modal-script-2" data-section="script-2-3">
+              🎙️ 이 장면 강의 해설 대본 읽기 →
+            </button>
+          </article>
+
+          <!-- 2-4 [핵심 실습] 최종 점검과 내보내기(저장) -->
+          <article class="scene-card highlight-card" id="scene-2-4">
+            <div class="scene-header">
+              <div class="scene-index key-point-index">장면 2-4 ★ 2차시 핵심 실습</div>
+              <h3 class="scene-title">처음부터 끝까지 최종 점검 & 갤러리로 내보내기(저장)</h3>
+              <span class="step-time">추천 시간: 10분</span>
+            </div>
+
+            <div class="step-lead">
+              드디어 마지막 관문입니다! 영화 시사회처럼 처음부터 끝까지 재생하며 오타나 실수가 없는지 확인하고, 태블릿 사진 앨범에 진짜 완성된 동영상 파일로 저장해 봅시다.
+            </div>
+
+            <!-- 최종 검토 3가지 체크포인트 -->
+            <div class="check-three-grid">
+              <div class="check-box">
+                <div class="check-badge">점검 1</div>
+                <h4>자막 오타 & 크기 확인</h4>
+                <p>글씨에 틀린 글자나 오타는 없는지, 인물의 얼굴이나 중요한 피사체를 자막이 가리고 있지는 않은지 확인합니다.</p>
+              </div>
+
+              <div class="check-box">
+                <div class="check-badge">점검 2</div>
+                <h4>소리 균형 확인</h4>
+                <p>배경음악 소리가 너무 커서 영상 속 원래 말소리나 효과음이 파묻히지 않는지 이어폰이나 스피커로 듣습니다.</p>
+              </div>
+
+              <div class="check-box">
+                <div class="check-badge">점검 3</div>
+                <h4>끝부분 길이 일치 확인</h4>
+                <p>영상 화면이 끝나는 순간에 음악도 군더더기 없이 딱 깔끔하게 멈추는지 마지막 3초를 확인합니다.</p>
+              </div>
+            </div>
+
+            <!-- 내보내기 단계 -->
+            <div class="export-flow-box">
+              <h4>🚀 태블릿 앨범에 저장하는 내보내기 3단계</h4>
+              <ol class="export-ol">
+                <li>
+                  <strong>해상도 확인:</strong> 화면 오른쪽 맨 위에서 <code class="code-tag">1080P</code>라고 적혀 있는지 확인합니다. (초고화질 기본 설정이라 건드릴 필요 없이 그대로 두면 됩니다!)
+                </li>
+                <li>
+                  <strong>[내보내기 ↑] 버튼 누르기:</strong> 화면 <strong>오른쪽 맨 위의 [내보내기 ↑] 버튼</strong>을 톡 누릅니다.
+                </li>
+                <li>
+                  <strong>100% 될 때까지 기다리기:</strong> 게이지가 0%부터 100%까지 차오르는 동안 <strong>화면을 끄거나 다른 앱으로 넘어가지 말고 가만히 기다려주세요!</strong>
+                </li>
+              </ol>
+            </div>
+
+            <!-- 태블릿 화면 조작 팁 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">📱</span> <strong>태블릿 화면 조작 팁: 완성 영상 확인하기</strong>
+              </div>
+              <p>내보내기가 100% 완료되면 태블릿의 기본 <strong>[사진] 또는 [갤러리] 앱</strong>을 열어보세요. 방금 내가 정성껏 만든 영상이 반짝반짝 저장되어 있습니다. 가족이나 지인에게 카카오톡으로 전송하거나, 인스타그램·유튜브 등에 바로 업로드할 수 있어요!</p>
+            </div>
+
+            <!-- 주의점 박스 -->
+            <div class="tip-card caution-tip">
+              <div class="tip-title">
+                <span class="tip-icon">🚨</span> <strong>내보내는 도중에 화면을 끄면 저장이 멈춰요!</strong>
+              </div>
+              <p>영상을 만드는 작업(렌더링)은 태블릿 컴퓨터가 엄청 열심히 일하고 있는 순간입니다. 100%가 될 때까지 태블릿 전원 버튼을 누르거나 홈 화면으로 나가지 말고 화면을 쳐다보며 조금만 기다려주세요!</p>
+            </div>
+
+            <!-- 펼쳐 보기 (쉬운 용어 풀이) -->
+            <details class="term-accordion">
+              <summary class="accordion-header">
+                <span class="chevron">▸</span>
+                <strong>쉬운 용어 풀이: '내보내기(Export)'와 '해상도(1080P)'란?</strong>
+              </summary>
+              <div class="accordion-body">
+                <div class="term-item">
+                  <span class="term-badge">내보내기 (Export / 추출 / 렌더링)</span>
+                  <p>캡컷 작업실 안에 흩어져 있던 영상 조각, 자막, 스티커, 음악을 하나의 붕어빵 틀에 넣고 구워내어 진짜 동영상 파일(MP4)로 완성해 태블릿 갤러리로 꺼내 보내는 작업입니다.</p>
+                </div>
+                <div class="term-item">
+                  <span class="term-badge">해상도 (Resolution / 1080P FHD)</span>
+                  <p>화면이 얼마나 선명하고 깨끗한지를 나타내는 픽셀의 수입니다. 1080P는 고화질 TV나 유튜브에서 가장 선명하게 보이는 표준 화질입니다.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- 이 장면 대본 바로가기 버튼 -->
+            <button class="btn-scene-script" data-modal="modal-script-2" data-section="script-2-4">
+              🎙️ 이 장면 강의 해설 대본 읽기 →
+            </button>
+          </article>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- 보충 섹션: 시간이 남았을 때 도전! (PIP/오버레이) -->
+        <!-- ========================================== -->
+        <div class="section-group" id="part-bonus">
+          <div class="part-banner banner-bonus">
+            <span class="part-pill pill-bonus">보충 도전</span>
+            <h2>시간이 남았을 때 도전! (심화 보충 자료)</h2>
+            <p>기본 실습을 빠르게 마친 분들을 위한 보너스 미션! 화면 구석에 작은 사진이나 영상을 겹쳐 띄워봅니다.</p>
+          </div>
+
+          <!-- 보충-1 장면 카드 -->
+          <article class="scene-card highlight-card bonus-card" id="scene-bonus-1">
+            <div class="scene-header">
+              <div class="scene-index bonus-index">보충-1 ★ 여유 시간 도전</div>
+              <h3 class="scene-title">[보충 도전] 화면 속 작은 화면 넣기: 오버레이(PIP)</h3>
+              <span class="step-time">추천 시간: 약 5~8분</span>
+            </div>
+
+            <div class="scene-lead">
+              유튜브나 뉴스 화면 구석에 작은 네모 화면이나 리액션 캠이 떠 있는 것을 본 적 있죠? 이것을 '화면 속 작은 화면(PIP)'이라고 합니다. 캡컷의 <strong>오버레이</strong> 기능으로 아주 쉽게 만들 수 있습니다!
+            </div>
+
+            <!-- 따라하기 순서 -->
+            <div class="step-list">
+              <div class="step-row">
+                <div class="step-badge">1단계</div>
+                <div class="step-body">
+                  <h4>타임라인에서 아무 영상도 선택되지 않은 상태 만들기</h4>
+                  <p>타임라인의 빈 공간을 손가락으로 톡 쳐서, 어떤 영상에도 <strong>하얀 테두리가 없는 상태</strong>(메인 메뉴 화면)를 만듭니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">2단계</div>
+                <div class="step-body">
+                  <h4>하단 메뉴에서 [오버레이] → [+ 오버레이 추가] 누르기</h4>
+                  <p>화면 맨 아래 메뉴에서 <strong>[오버레이(화면 겹치기)]</strong> 아이콘을 터치하고, 위에 나타나는 <strong>[+ 오버레이 추가]</strong> 버튼을 누릅니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">3단계</div>
+                <div class="step-body">
+                  <h4>겹쳐서 띄울 사진 또는 짧은 동영상 1개 고르고 [추가] 누르기</h4>
+                  <p>갤러리 앨범에서 화면 구석에 띄우고 싶은 사진이나 3초 이내의 짧은 영상을 하나 선택한 뒤 오른쪽 아래 <strong>[추가]</strong> 버튼을 누릅니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">4단계</div>
+                <div class="step-body">
+                  <h4>미리보기 화면에서 두 손가락으로 줄여 구석(오른쪽 위 등)으로 배치</h4>
+                  <p>미리보기 화면 중앙에 크게 들어온 사진/영상을 <strong>두 손가락으로 오므려 크기를 작게 줄인 뒤</strong>, 손가락으로 꾹 끌어 화면 구석(오른쪽 위나 왼쪽 위)으로 예쁘게 옮겨 놓습니다.</p>
+                </div>
+              </div>
+
+              <div class="step-row">
+                <div class="step-badge">5단계</div>
+                <div class="step-body">
+                  <h4>타임라인 아래 오버레이 막대 앞뒤 꼬리를 당겨 나오는 시간 맞추기</h4>
+                  <p>메인 영상 바로 아래에 새로 생긴 <strong>오버레이 막대</strong>를 터치하고, 앞뒤 끝부분(흰색 핸들)을 손가락으로 당겨 이 작은 화면이 언제 켜지고 언제 꺼질지 시간을 딱 맞춥니다.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 태블릿 화면 조작 팁 -->
+            <div class="tip-card tablet-tip">
+              <div class="tip-title">
+                <span class="tip-icon">📱</span> <strong>태블릿 화면 조작 팁</strong>
+              </div>
+              <p>오버레이로 올린 작은 화면은 미리보기 창에서 <strong>두 손가락을 살짝 비틀면 대각선으로 기울일 수도 있습니다!</strong> 귀여운 스티커 사진처럼 살짝 기울여 배치하면 더 감각적인 영상이 됩니다.</p>
+            </div>
+
+            <!-- 실수하기 쉬운 주의점 박스 (소리 겹침) -->
+            <div class="tip-card caution-tip">
+              <div class="tip-title">
+                <span class="tip-icon">🚨</span> <strong>소리 겹침 주의! 오버레이 영상 소리는 꼭 '0'으로 끄세요!</strong>
+              </div>
+              <p>오버레이로 사진이 아닌 <strong>'동영상'</strong>을 가져왔을 때는 원래 영상의 소리와 새로 넣은 영상의 소리가 동시에 나와서 소리가 매우 시끄럽고 산만해집니다!<br>
+              👉 반드시 새로 넣은 <strong>오버레이 막대를 터치</strong>한 뒤, 하단 메뉴에서 <strong>[🔊 볼륨]</strong>을 눌러 <strong>숫자를 0으로 완전히 내려 꺼주어야 합니다!</strong></p>
+            </div>
+
+            <!-- 펼쳐 보기 (쉬운 용어 풀이) -->
+            <details class="term-accordion">
+              <summary class="accordion-header">
+                <span class="chevron">▸</span>
+                <strong>쉬운 용어 풀이: '오버레이(Overlay)'와 'PIP'는 무슨 뜻인가요?</strong>
+              </summary>
+              <div class="accordion-body">
+                <div class="term-item">
+                  <span class="term-badge">오버레이 (Overlay / 덮어씌우기)</span>
+                  <p>원래 있던 도화지(배경 영상) 위에 투명한 셀로판지나 스티커를 한 장 더 얹듯이, 다른 영상이나 사진을 위에 겹쳐 올리는 마법의 층(레이어) 기술입니다.</p>
+                </div>
+                <div class="term-item">
+                  <span class="term-badge">PIP (Picture in Picture / 화면 속 화면)</span>
+                  <p>큰 그림(Picture) 안에 또 다른 작은 그림(Picture)이 쏙 들어가 있다는 영어 약자예요. TV 뉴스에서 앵커 얼굴 옆에 사건 현장 사진이 작은 네모로 떠 있는 것을 상상하면 됩니다.</p>
+                </div>
+              </div>
+            </details>
+
+            <!-- 이 장면 대본 바로가기 버튼 -->
+            <button class="btn-scene-script" data-modal="modal-script-2" data-section="script-bonus-1">
+              🎙️ 이 장면 강의 해설 대본 읽기 →
+            </button>
+          </article>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- 서가: 혼자 복습하는 자료실 -->
+        <!-- ========================================== -->
+        <div class="section-group" id="part-ref">
+          <div class="part-banner banner-ref">
+            <span class="part-pill pill-ref">서가 (자료실)</span>
+            <h2>혼자 복습하는 캡컷 보물 자료실</h2>
+            <p>집에서 혼자 영상을 만들다가 헷갈릴 때 언제든 펼쳐보는 용어 사전과 스스로 점검표입니다.</p>
+          </div>
+
+          <!-- 서가 1: 핵심 용어 사전 -->
+          <article class="scene-card" id="scene-ref-dict">
+            <div class="scene-header">
+              <div class="scene-index">서가-1</div>
+              <h3 class="scene-title">누구나 쉽게 이해하는 캡컷 핵심 용어 사전 (7선)</h3>
+            </div>
+
+            <div class="dict-grid">
+              <div class="dict-card">
+                <div class="dict-head">
+                  <span class="dict-term">1. 인디케이터</span>
+                  <span class="dict-en">Indicator</span>
+                </div>
+                <div class="dict-badge-box">기준선 · 재생 바늘</div>
+                <p>타임라인 정중앙에 수직으로 서 있는 <strong>하얀색 세로 막대</strong>입니다. 가위질을 하거나 자막을 넣을 때 모든 작업의 시작 기준이 되는 가장 중요한 나침반입니다.</p>
+              </div>
+
+              <div class="dict-card">
+                <div class="dict-head">
+                  <span class="dict-term">2. 타임라인</span>
+                  <span class="dict-en">Timeline</span>
+                </div>
+                <div class="dict-badge-box">시간 기차 레일</div>
+                <p>영상, 자막, 음악 조각들이 왼쪽에서 오른쪽으로 시간 순서대로 길게 늘어서 있는 <strong>편집 작업 벨트</strong>입니다. 손가락으로 좌우로 쓱쓱 밀어 이동합니다.</p>
+              </div>
+
+              <div class="dict-card">
+                <div class="dict-head">
+                  <span class="dict-term">3. 클립</span>
+                  <span class="dict-en">Clip</span>
+                </div>
+                <div class="dict-badge-box">영상 한 조각</div>
+                <p>촬영한 동영상 파일 하나 또는 가위로 잘라낸 <strong>각각의 영상 조각</strong>들을 부르는 말입니다. 터치하면 하얀 테두리가 생깁니다.</p>
+              </div>
+
+              <div class="dict-card">
+                <div class="dict-head">
+                  <span class="dict-term">4. 분할</span>
+                  <span class="dict-en">Split</span>
+                </div>
+                <div class="dict-badge-box">가위질하기</div>
+                <p>하나의 긴 동영상을 하얀 기준선이 놓인 지점에서 <strong>두 개로 싹둑 쪼개는 기능</strong>입니다. 불필요한 부분을 버리기 위해 꼭 거쳐야 합니다.</p>
+              </div>
+
+              <div class="dict-card">
+                <div class="dict-head">
+                  <span class="dict-term">5. 전환 효과</span>
+                  <span class="dict-en">Transition</span>
+                </div>
+                <div class="dict-badge-box">장면 넘김 다리</div>
+                <p>조각과 조각 사이의 하얀 네모 단추를 눌러 설정하며, 앞 장면에서 뒷장면으로 넘어갈 때 <strong>자연스럽고 부드럽게 이어주는 효과</strong>입니다.</p>
+              </div>
+
+              <div class="dict-card">
+                <div class="dict-head">
+                  <span class="dict-term">6. 볼륨</span>
+                  <span class="dict-en">Volume</span>
+                </div>
+                <div class="dict-badge-box">소리 크기 조절</div>
+                <p>소리의 크기입니다. 배경음악(BGM) 소리가 너무 크면 목소리가 안 들리므로 <strong>20~30%</strong> 정도로 부드럽게 낮춰줍니다.</p>
+              </div>
+
+              <div class="dict-card full-dict-card">
+                <div class="dict-head">
+                  <span class="dict-term">7. 내보내기</span>
+                  <span class="dict-en">Export</span>
+                </div>
+                <div class="dict-badge-box">최종 영상 저장하기</div>
+                <p>캡컷 안에서 편집하던 모든 재료(영상+자막+음악)를 하나로 단단하게 뭉쳐서 내 태블릿의 <strong>사진/갤러리 앱에 완벽한 비디오 파일(MP4)로 구워내 저장하는 일</strong>입니다.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 서가 2: 스스로 완성 체크리스트 -->
+          <article class="scene-card" id="scene-ref-check">
+            <div class="scene-header">
+              <div class="scene-index">서가-2</div>
+              <h3 class="scene-title">스스로 확인하는 나의 캡컷 영상 완성 체크리스트</h3>
+            </div>
+
+            <div class="scene-lead">
+              내보내기 버튼을 누르기 전에 손가락으로 하나씩 터치하며 점검해 보세요. 모든 항목에 체크하면 멋진 명작 완성이 보장됩니다!
+            </div>
+
+            <!-- 프로그레스 바 -->
+            <div class="checklist-progress-container">
+              <div class="progress-info">
+                <span>달성도 점검: <strong id="check-count">0</strong> / 8개 완료</span>
+                <span id="check-percentage" class="percent-label">0%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div id="progress-bar-fill" class="progress-bar-fill"></div>
+              </div>
+            </div>
+
+            <div class="checklist-items" id="checklist-group">
+              <label class="check-item">
+                <input type="checkbox" class="chk-box" data-id="c1">
+                <span class="checkmark"></span>
+                <span class="chk-text"><strong>1. 유료 마크 점검:</strong> 반짝이는 다이아몬드(💎)나 'PRO', '무료 체험판' 기능이 들어가지 않았나요?</span>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" class="chk-box" data-id="c2">
+                <span class="checkmark"></span>
+                <span class="chk-text"><strong>2. 기본 엔딩 삭제:</strong> 영상 맨 뒤에 붙은 검은색 'CapCut' 엔딩 클립을 깨끗하게 삭제했나요?</span>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" class="chk-box" data-id="c3">
+                <span class="checkmark"></span>
+                <span class="chk-text"><strong>3. 컷 편집 정리:</strong> 카메라가 흔들리거나 쓸데없이 멈칫한 부분이 [분할 → 삭제]로 잘 다듬어졌나요?</span>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" class="chk-box" data-id="c4">
+                <span class="checkmark"></span>
+                <span class="chk-text"><strong>4. 자막 오타 확인:</strong> 자막에 오타나 어색한 맞춤법이 없는지 꼼꼼하게 읽어보았나요?</span>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" class="chk-box" data-id="c5">
+                <span class="checkmark"></span>
+                <span class="chk-text"><strong>5. 자막 가독성:</strong> 글씨 테두리(외곽선)나 배경색을 넣어 밝은 화면에서도 글씨가 또렷하게 잘 보이나요?</span>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" class="chk-box" data-id="c6">
+                <span class="checkmark"></span>
+                <span class="chk-text"><strong>6. 전환 효과 점검:</strong> 장면 전환 효과가 너무 요란하지 않고 자연스럽게 다음 장면으로 넘어가나요?</span>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" class="chk-box" data-id="c7">
+                <span class="checkmark"></span>
+                <span class="chk-text"><strong>7. 음악 길이 일치:</strong> 영상이 끝나는 지점에 딱 맞춰 배경음악도 [분할 → 뒷부분 삭제]를 완료했나요?</span>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" class="chk-box" data-id="c8">
+                <span class="checkmark"></span>
+                <span class="chk-text"><strong>8. 배경음악 볼륨:</strong> 배경음악 볼륨을 20~30 정도로 알맞게 줄여서 목소리가 묻히지 않나요?</span>
+              </label>
+            </div>
+
+            <div id="checklist-congrats" class="congrats-card hidden">
+              🎉 <strong>완벽합니다!</strong> 8가지 필수 검사를 모두 통과했습니다. 이제 안심하고 오른쪽 위 <strong>[내보내기 ↑]</strong>를 눌러 갤러리에 저장하세요!
+            </div>
+          </article>
+        </div>
+
+        <!-- 하단 네비게이션 가이드 -->
+        <footer class="lesson-footer">
+          <div class="footer-card">
+            <h3>🎬 캡컷 모바일 기초 실습을 마친 여러분, 축하합니다!</h3>
+            <p>오늘 배운 [컷 편집 4단계 공식]과 [자막·음악 넣기]의 기본기만 잘 익혀두면, 일상 브이로그부터 가족 여행 기록, SNS 숏폼, 업무·발표 영상까지 깔끔하고 멋진 영상을 얼마든지 직접 제작할 수 있습니다. 일상의 소중한 순간들을 나만의 감성으로 멋지게 기록해 보세요!</p>
+          </div>
+        </footer>
+
+        <!-- 하단 글로벌 푸터 -->
+        <footer class="global-footer">
+          <div class="global-footer-inner">
+            <svg class="footer-book-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v14h16V5H4zm2 2h12v2H6V7zm0 4h12v2H6v-2zm0 4h8v2H6v-2z"/>
+            </svg>
+            <span class="footer-text">Tony's Library · Gather to learn, unfold to teach.</span>
+          </div>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 친절한 강의 해설 스크립트 모달 창 (1차시) -->
+  <!-- ========================================== -->
+  <div id="modal-script-1" class="script-modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-badge-row">
+          <span class="badge badge-one">1차시 강의 대본</span>
+          <span class="modal-time">입문자를 위한 친절한 강의 해설</span>
+        </div>
+        <h3>🎙️ 1차시: 편집실 준비와 컷 편집 마스터하기</h3>
+        <button class="modal-close-btn" data-close="modal-script-1" aria-label="닫기">✕</button>
+      </div>
+
+      <div class="modal-body script-content">
+        <!-- 1-1 스크립트 -->
+        <div class="script-section" id="script-1-1">
+          <h4>[1-1 설명 대본] "여러분, 오늘 우리는 멋진 영상 제작자가 됩니다!"</h4>
+          <div class="speech-bubble teacher">
+            "여러분 안녕하세요! 오늘부터 모바일(스마트폰·태블릿)에서 전 세계적으로 가장 널리 쓰이는 영상 편집 앱인 '캡컷(CapCut)'의 핵심 기초를 쉽고 재미있게 마스터해 볼 거예요.<br><br>
+            유튜브나 숏폼 영상을 보면서 '나도 내 일상이나 여행 영상을 저렇게 깔끔하고 보기 좋게 편집해보고 싶다' 생각하신 적 많으시죠? 오늘 강의에서 딱 필요한 핵심 기능만 차근차근 따라 하시면, 처음 편집해 보시는 분도 누구나 근사한 10초~20초짜리 완성작을 만드실 수 있습니다. 자, 기기를 켜고 편안하게 거치해 볼까요?<br><br>
+            앱스토어나 구글 플레이스토어에서 '캡컷'을 검색해 설치해 주세요. 앱을 열면 여러 동의 창이 뜰 텐데요, 여기서 무심코 '모두 동의' 누르지 말고 <strong>[필수]</strong>라고 적힌 것만 콕콕 눌러 체크합니다. 그리고 구글 계정으로 로그인해 주세요.<br><br>
+            가장 중요한 순간! '사진 접근 권한' 팝업이 뜨면 반드시 <strong>'모든 사진에 대한 접근 허용'</strong>을 눌러주셔야 합니다. 이걸 허용하지 않으면 기기에 저장된 실습 영상들이 캡컷 화면에 정상적으로 보이지 않습니다!"
+          </div>
+        </div>
+
+        <!-- 1-2 스크립트 -->
+        <div class="script-section" id="script-1-2">
+          <h4>[1-2 설명 대본] 유료 다이아몬드 피하기와 캡컷 기본 엔딩 지우기</h4>
+          <div class="speech-bubble teacher">
+            "자, 화면을 보세요. 캡컷에는 정말 예쁜 효과들이 많은데, 메뉴 모퉁이를 잘 보세요. 작고 반짝이는 <strong>보라색 다이아몬드(💎)나 'PRO', '무료 체험판'</strong> 표시가 보이죠?<br><br>
+            이건 돈을 내야 하는 유료 기능입니다. 이걸 하나라도 넣으면 마지막에 저장이 안 되고 결제창이 떠요! 우리는 비용 결제 걱정 없는 <strong>아무 표시도 없는 100% 무료 기능만</strong> 사용할 것이니 안심하셔도 됩니다!<br><br>
+            그리고 프로젝트 맨 뒤로 가보면 검은 화면에 'CapCut' 로고가 붙어 있죠? 이걸 손가락으로 톡 누르고 아래 <strong>[삭제(휴지통)]</strong> 버튼을 눌러보세요. 깔끔하게 사라졌죠?<br><br>
+            앞으로는 더 쉽게 하려면, 첫 화면 맨 아래 오른쪽 <strong>[나]</strong> 탭을 누르고 오른쪽 위 <strong>[설정(⚙️)]</strong>으로 들어가서 <strong>'기본 엔딩 추가'를 꺼두면</strong> 앞으로 새 프로젝트를 만들어도 엔딩이 영원히 생기지 않습니다!"
+          </div>
+        </div>
+
+        <!-- 1-3 스크립트 -->
+        <div class="script-section" id="script-1-3">
+          <h4>[1-3 설명 대본] 편집 화면 구경하기 & 인디케이터(기준선)의 비밀</h4>
+          <div class="speech-bubble teacher">
+            "이제 [+ 새 프로젝트]를 누르고 준비된 영상 클립들을 불러와 볼까요? 편집 화면이 크게 세 구역으로 나뉘어 있죠?<br><br>
+            위쪽의 큰 화면은 영화관 화면 같은 <strong>'미리보기 창'</strong>이에요. 재생 버튼을 누르면 영상이 움직입니다.<br><br>
+            아래쪽에 영상들이 가로로 누워 있는 넓은 길은 <strong>'타임라인'</strong>이에요. 기차 레일처럼 시간이 흘러가는 길입니다. 손가락으로 좌우로 밀어보세요.<br><br>
+            그리고 타임라인 정중앙에 수직으로 서 있는 하얀 막대! 이것의 이름이 바로 <strong>'인디케이터(기준선)'</strong>입니다. 가위질을 하든 자막을 붙이든, 무조건 이 하얀 세로선이 서 있는 자리에 들어가요. 작업하기 전에는 항상 이 하얀 선을 원하는 자리에 먼저 세워두는 습관을 들여야 합니다!"
+          </div>
+        </div>
+
+        <!-- 1-4 스크립트 -->
+        <div class="script-section" id="script-1-4">
+          <h4>[1-4 핵심 대본] 컷 편집 4단계 공식과 U턴 화살표(되돌리기)</h4>
+          <div class="speech-bubble teacher">
+            "이제 오늘 1차시의 하이라이트! 영상 편집의 90%를 차지하는 '컷 편집'입니다. 편집의 황금 주문 4단계를 함께 기억해 볼까요?<br><br>
+            <strong>'기준선 두기 → 영상 터치 → 분할 누르기 → 삭제 누르기!'</strong><br><br>
+            먼저 타임라인을 손가락으로 밀어 자르고 싶은 곳에 하얀 세로선인 <strong>'인디케이터'</strong>를 둡니다. 그 다음 영상을 톡 쳐서 <strong>하얀 테두리</strong>를 띄우고, 아래 첫 번째 가위 모양 <strong>[분할]</strong>을 누르면 싹둑 잘립니다. 버릴 조각을 터치하고 <strong>[삭제]</strong>를 누르면 끝!<br><br>
+            앗, 방금 지우면 안 되는 중요한 부분을 실수로 지웠다고요? 당황하지 말고 화면 왼쪽 위의 <strong>'U턴 화살표(되돌리기)'</strong>를 누르면 1초 전으로 돌아갑니다. 자, 각자 준비한 영상에서 불필요한 앞뒤 부분을 잘라내 보세요!"
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-primary" data-close="modal-script-1">창 닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 친절한 강의 해설 스크립트 모달 창 (2차시) -->
+  <!-- ========================================== -->
+  <div id="modal-script-2" class="script-modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-badge-row">
+          <span class="badge badge-two">2차시 강의 대본</span>
+          <span class="modal-time">입문자를 위한 친절한 강의 해설</span>
+        </div>
+        <h3>🎙️ 2차시: 자막·전환·음악 입히고 완성하기</h3>
+        <button class="modal-close-btn" data-close="modal-script-2" aria-label="닫기">✕</button>
+      </div>
+
+      <div class="modal-body script-content">
+        <!-- 2-1 스크립트 -->
+        <div class="script-section" id="script-2-1">
+          <h4>[2-1 설명 대본] 기본 자막 넣기와 검은 테두리(스타일)의 비밀</h4>
+          <div class="speech-bubble teacher">
+            "1차시에서 군더더기 영상을 깔끔하게 잘라냈죠? 이제 영상에 자막을 입혀봅시다!<br><br>
+            글씨가 나와야 할 자리에 하얀 기준선을 먼저 놓으세요. 아래 메뉴에서 <strong>[T 텍스트] → [+ 텍스트 추가]</strong>를 누르고 글씨를 씁니다.<br><br>
+            그런데 흰 글씨만 쓰면 하얀 하늘이나 밝은 벽 앞에서 글씨가 사라져 버려요. 이때 마법의 비법이 있습니다! 바로 <strong>[스타일] 메뉴의 [획(외곽선)]</strong>입니다. 검은색을 콕 찍어주고 두께를 30% 정도로 조절해 보세요. 글씨 둘레에 또렷한 검은 테두리가 생깁니다. 방송국 자막처럼 눈에 확 들어오죠?<br><br>
+            자막 위치는 미리보기 창에서 손가락으로 끌어 화면 아래쪽에 살짝 띄워 배치해 주세요. 맨 바닥에 붙이면 나중에 제목에 가려지니 주의하세요!"
+          </div>
+        </div>
+
+        <!-- 2-2 스크립트 -->
+        <div class="script-section" id="script-2-2">
+          <h4>[2-2 설명 대본] 귀여운 스티커 붙이기와 하얀 네모(장면 전환) 누르기</h4>
+          <div class="speech-bubble teacher">
+            "재미있는 포인트에는 <strong>[스티커]</strong> 메뉴에서 하트나 불꽃 같은 무료 스티커를 붙여보세요.<br><br>
+            그리고 타임라인에서 영상과 영상이 만나는 틈새를 보세요. 작은 <strong>하얀색 네모 상자(가운데 검은 줄)</strong>가 보이나요? 손가락으로 거길 콕 터치해 보세요! 바로 '화면 전환(트랜지션)' 창이 뜹니다.<br><br>
+            여기서 화면 전환 메뉴의 <strong>[기본]</strong> 탭에 있는 <strong>'디졸브'</strong>를 선택하고 시간을 0.5초 정도로 맞춘 뒤 체크를 누르면, 첫 번째 장면이 물에 녹듯이 부드럽게 두 번째 장면으로 스르륵 이어집니다!"
+          </div>
+        </div>
+
+        <!-- 2-3 스크립트 -->
+        <div class="script-section" id="script-2-3">
+          <h4>[2-3 설명 대본] 배경음악 넣기, 뒷부분 자르기, 볼륨 줄이기</h4>
+          <div class="speech-bubble teacher">
+            "이제 분위기를 살려줄 음악입니다! 기준선을 맨 앞으로 보내고 <strong>[오디오] → [사운드]</strong>로 들어가서 마음에 드는 무료 음악을 골라 [+]를 누릅니다.<br><br>
+            여기서 진짜 중요한 주의점! 음악은 보통 2~3분이라 영상보다 훨씬 깁니다. 영상이 끝나는 바로 그 위치에 하얀 기준선을 딱 세우고, 음악 막대를 터치해서 <strong>[분할] 누르고 삐져나온 뒷부분 음악을 [삭제]</strong>해야 합니다! 안 그러면 까만 화면에서 음악만 3분 동안 나옵니다.<br><br>
+            그리고 음악을 터치하고 <strong>[볼륨]을 눌러서 20~30 정도로 줄여주세요.</strong> 그래야 영상 속 목소리가 음악에 묻히지 않아요."
+          </div>
+        </div>
+
+        <!-- 2-4 스크립트 -->
+        <div class="script-section" id="script-2-4">
+          <h4>[2-4 핵심 대본] 처음부터 끝까지 최종 검토 & 갤러리로 내보내기(저장)</h4>
+          <div class="speech-bubble teacher">
+            "자, 영화 시사회처럼 처음부터 끝까지 재생해 볼까요? 자막 오타는 없나요? 소리 크기는 알맞나요? 영상 끝날 때 음악도 같이 끝나나요?<br><br>
+            모두 완벽하다면, 화면 오른쪽 맨 위의 <strong>[내보내기 ↑]</strong> 버튼을 꾹 누릅니다! 해상도는 1080P 기본이니 그대로 두면 됩니다.<br><br>
+            게이지가 100%가 될 때까지 절대 화면을 끄거나 다른 앱으로 넘어가지 말고 기다려주세요! 100% 완료 창이 뜨면 태블릿의 <strong>[사진/갤러리] 앱</strong>을 켜보세요. 방금 내가 만든 첫 완성작 비디오가 반짝반짝 들어있을 거예요! 첫 작품을 멋지게 완성하신 것을 진심으로 축하드립니다!"
+          </div>
+        </div>
+
+        <!-- 보충-1 스크립트 -->
+        <div class="script-section bonus-script-section" id="script-bonus-1">
+          <h4>[보충 활동 · 여유 시간] 화면 속 작은 화면(PIP/오버레이) 도전하기</h4>
+          <div class="speech-bubble teacher">
+            "기본 실습을 빠르게 마치고 여유 시간이 있는 분들을 위해 유용한 보너스 테크닉인 '화면 속 작은 화면(PIP/오버레이)'을 알려드릴게요.<br><br>
+            먼저 타임라인 빈 곳을 터치해서 흰 테두리가 없게 만든 뒤, 하단 메뉴에서 <strong>[오버레이] → [+ 오버레이 추가]</strong>를 누릅니다. 그리고 띄우고 싶은 사진이나 짧은 영상을 선택해 추가해 보세요.<br><br>
+            미리보기 화면에 크게 들어온 사진을 두 손가락으로 콕 잡고 작게 줄여서 오른쪽 위 구석에 쏙 올려놓습니다. 타임라인 아래에 생긴 주황색 오버레이 막대 길이를 조절하면 언제 나타났다 사라질지도 정할 수 있어요.<br><br>
+            여기서 중요한 팁 하나! 오버레이로 동영상을 올리신 경우, 원래 영상 소리와 새 영상 소리가 동시에 재생되어 어수선해질 수 있습니다. <strong>새로 올린 오버레이 막대를 선택하고 [볼륨]을 눌러 '0'으로 꺼주시는 센스!</strong> 꼭 기억해 두세요!"
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-primary" data-close="modal-script-2">창 닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
