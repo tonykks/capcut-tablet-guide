@@ -39,6 +39,43 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
+     2-1. 시크릿 페이지 전환 스위치 (상단 배지의 가운데 영역 클릭/터치 시 전환)
+     - 남들은 눈치채지 못하도록 기본 커서 유지 및 가운데 50% 영역 터치 시에만 동작
+     ========================================================================== */
+  const metaBadgeSwitch = document.getElementById('meta-badge-switch');
+  if (metaBadgeSwitch) {
+    let touchHandled = false;
+
+    const handleSecretSwitch = (clientX) => {
+      const rect = metaBadgeSwitch.getBoundingClientRect();
+      const clickX = clientX - rect.left;
+      const ratio = clickX / rect.width;
+      // 배지의 가운데 50% 영역(25% ~ 75%)을 터치/클릭했을 때만 전환
+      if (ratio >= 0.25 && ratio <= 0.75) {
+        const targetPage = metaBadgeSwitch.getAttribute('data-target-page');
+        if (targetPage) {
+          window.location.href = targetPage;
+        }
+      }
+    };
+
+    metaBadgeSwitch.addEventListener('touchend', (e) => {
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        touchHandled = true;
+        handleSecretSwitch(e.changedTouches[0].clientX);
+      }
+    }, { passive: true });
+
+    metaBadgeSwitch.addEventListener('click', (e) => {
+      if (touchHandled) {
+        touchHandled = false;
+        return;
+      }
+      handleSecretSwitch(e.clientX);
+    });
+  }
+
+  /* ==========================================================================
      3. 테마 (라이트 / 다크 모드) 관리
      ========================================================================== */
   const savedTheme = localStorage.getItem('capcut_theme') || 
