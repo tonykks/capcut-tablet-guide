@@ -2660,6 +2660,11 @@ body.theme-dark .privacy-warning-content p {
   word-break: break-all;
 }
 
+.url-value.short {
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
 .url-value:hover {
   text-decoration: underline;
 }
