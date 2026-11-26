@@ -356,4 +356,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 초기 로드 시 체크리스트 진행률 갱신
   updateChecklistProgress();
+
+  /* ==========================================================================
+     9. QR 접속 안내 페이지 URL 복사 버튼 (share.html)
+     ========================================================================== */
+  const copyButtons = document.querySelectorAll('.copy-btn');
+  const copyFeedback = document.getElementById('copy-feedback');
+
+  function fallbackCopyText(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.top = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    let ok = false;
+    try {
+      ok = document.execCommand('copy');
+    } catch (err) {
+      ok = false;
+    }
+    document.body.removeChild(textarea);
+    return ok;
+  }
+
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('data-copy-text');
+      if (!text) return;
+
+      let copied = false;
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        } catch (err) {
+          copied = fallbackCopyText(text);
+        }
+      } else {
+        copied = fallbackCopyText(text);
+      }
+
+      if (copied) {
+        const originalText = btn.dataset.originalText || btn.textContent;
+        btn.dataset.originalText = originalText;
+        btn.textContent = '✅ 복사됨!';
+        btn.classList.add('copied');
+
+        if (copyFeedback) {
+          copyFeedback.textContent = `주소가 복사되었습니다: ${text}`;
+        }
+
+        clearTimeout(btn._copyTimer);
+        btn._copyTimer = setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      } else if (copyFeedback) {
+        copyFeedback.textContent = '복사에 실패했습니다. 주소를 길게 눌러 복사해 주세요.';
+      }
+    });
+  });
 });
